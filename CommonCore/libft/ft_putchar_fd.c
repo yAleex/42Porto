@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexasil <alexasil@student.42porto.co      +#+  +:+       +#+        */
+/*   By: alexasil <alexasil@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 17:10:50 by alexasil          #+#    #+#             */
-/*   Updated: 2025/10/16 17:12:59 by alexasil         ###   ########.fr       */
+/*   Created: 2025/10/20 21:35:42 by alexasil          #+#    #+#             */
+/*   Updated: 2025/10/20 21:40:58 by alexasil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcpy(char *dst, const char *src, size_t size)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	s;
-	size_t	i;
-
-	s = 0;
-	while (src[i] != '\0')
-		s++;
-	i = 0;
-	if (size > 0)
-	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (s);
+	write (fd, &c, 1);
 }

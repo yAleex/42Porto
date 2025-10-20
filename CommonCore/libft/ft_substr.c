@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexasil <alexasil@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 17:10:50 by alexasil          #+#    #+#             */
-/*   Updated: 2025/10/16 17:12:59 by alexasil         ###   ########.fr       */
+/*   Created: 2025/10/18 11:27:28 by alexasil          #+#    #+#             */
+/*   Updated: 2025/10/18 11:46:44 by alexasil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcpy(char *dst, const char *src, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	s;
+	char	*ptr;
 	size_t	i;
+	size_t	count;
 
-	s = 0;
-	while (src[i] != '\0')
-		s++;
-	i = 0;
-	if (size > 0)
+	if (!s)
+		return (0);
+	if (start >= ft_strlen(s))
 	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		ptr = (char *)malloc(1);
+		ptr[0] = '\0';
+		return (ptr);
 	}
-	return (s);
+	ptr = (char *)malloc(len + 1);
+	if (!ptr)
+		return (0);
+	i = start;
+	count = 0;
+	while (s[i] != '\0' && count < len)
+	{
+		ptr[count] = s[i];
+		i++;
+		count++;
+	}
+	ptr[count] = '\0';
+	return (ptr);
 }

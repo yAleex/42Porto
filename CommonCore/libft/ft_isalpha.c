@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexasil <alexasil@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 17:10:50 by alexasil          #+#    #+#             */
-/*   Updated: 2025/10/16 17:12:59 by alexasil         ###   ########.fr       */
+/*   Created: 2025/10/13 16:27:54 by alexasil          #+#    #+#             */
+/*   Updated: 2025/10/16 17:07:29 by alexasil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcpy(char *dst, const char *src, size_t size)
+int	ft_isalpha(char n)
 {
-	size_t	s;
-	size_t	i;
-
-	s = 0;
-	while (src[i] != '\0')
-		s++;
-	i = 0;
-	if (size > 0)
-	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (s);
+	if ((n >= 65 && n <= 90) || (n >= 97 && n <= 122))
+		return (1);
+	return (0);
 }

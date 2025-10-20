@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexasil <alexasil@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 17:10:50 by alexasil          #+#    #+#             */
-/*   Updated: 2025/10/16 17:12:59 by alexasil         ###   ########.fr       */
+/*   Created: 2025/10/18 10:37:06 by alexasil          #+#    #+#             */
+/*   Updated: 2025/10/18 10:56:30 by alexasil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcpy(char *dst, const char *src, size_t size)
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	size_t	s;
-	size_t	i;
+	unsigned char	*ptr;
+	size_t			total;
 
-	s = 0;
-	while (src[i] != '\0')
-		s++;
-	i = 0;
-	if (size > 0)
-	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (s);
+	total = nitems * size;
+	ptr = (unsigned char *)malloc(total);
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, total);
+	return (ptr);
 }
